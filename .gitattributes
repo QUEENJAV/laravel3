@@ -1,0 +1,33 @@
+* text=auto
+* text=auto eol=lf
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+/.github export-ignore
+CHANGELOG.md export-ignore
+
+.styleci.yml export-ignore
+* text=auto
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.php text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.env text eol=lf
+
+# *.sh text eol=CRLF
+# *.yml text eol=CRLF
+# *.yaml text eol=CRLF
+# *.md text eol=CRLF
+# *.php text eol=CRLF
+# *.js text eol=CRLF
+# *.css text eol=CRLF
+# *.html text eol=CRLF
+# *.env text eol=CRLF
