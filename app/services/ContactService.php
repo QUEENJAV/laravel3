@@ -38,7 +38,7 @@ class ContactService implements ContactServiceInterface
             try {
                 $imagePath = $this->fileStorage->storeFile($data['avatar'], 'upload');
             } catch (Exception $e) {
-                throw new \RuntimeException('The avatar failed to upload.');
+                throw new \RuntimeException('L\'avatar n\'a pas pu être téléchargé.');
             }
         } else {
             $imagePath = "no-image.jpg";
@@ -51,7 +51,8 @@ class ContactService implements ContactServiceInterface
             'numeroTelephone' => $data['numeroTelephone'],
             'imagePath' => $imagePath,
             'groupeId' => $data['selectedGroup'] ?? null,
-            'userId' => $userId
+            'userId' => $userId,
+            'is_favorite' => isset($data['is_favorite']) ? $data['is_favorite'] : false
         ]);
 
         $contactData = [
@@ -61,7 +62,7 @@ class ContactService implements ContactServiceInterface
             'numeroTelephone' => $contactDTO->numeroTelephone,
             'image' => $contactDTO->imagePath,
             'groupe_id' => $contactDTO->groupeId,
-            'user_id' => $contactDTO->userId,
+            'user_id' => $contactDTO->userId
         ];
 
         return $this->contactRepository->createContact($contactData, $userId);
@@ -98,7 +99,6 @@ class ContactService implements ContactServiceInterface
 
         return $contact->delete();
     }
-
     public function updateContactFavoritesStatus(Contact $contact, bool $isFavorite): Contact
     {
         $contact->is_favorite = $isFavorite ? 1 : 0;

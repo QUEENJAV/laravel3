@@ -22,8 +22,8 @@ class FileStorageService implements FileStorageServiceInterface
             $imagePath = $file->store($path, 'public');
             return config('app.url') . '/storage/' . $imagePath;
         } catch (Exception $e) {
-            // \Log::error('File upload failed: ' . $e->getMessage());
-            throw new \RuntimeException('The avatar failed to upload.');
+            Log::error('File upload failed: ' . $e->getMessage());
+            throw new \RuntimeException('L\'avatar n\'a pas pu être téléchargé.');
         }
     }
 

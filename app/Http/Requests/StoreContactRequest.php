@@ -19,9 +19,10 @@ class StoreContactRequest extends FormRequest
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'numeroTelephone' => 'required|number|max:200',
+            'numeroTelephone' => 'required|string|max:200',
             'selectedGroup' => 'required|exists:groups,id',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_favorite' => 'nullable|boolean'
         ];
     }
 
@@ -38,15 +39,20 @@ class StoreContactRequest extends FormRequest
 //     ];  
 // }
 
-public function messages(): array
-{
-    return [
-        'nom.required' => 'Le nom est obligatoire',
-        'prenom.required' => 'Le prénom est obligatoire',
-        'email.required' => 'L\'email est obligatoire',
-        'email.email' => 'L\'email n\'est pas valide',
-        'email.unique' => 'Cet email est déjà utilisé',
-        'numeroTelephone.required' => 'Le téléphone est obligatoire',
-    ];
-}
+    public function messages(): array
+    {
+        return [
+            'nom.required' => 'Le nom est obligatoire',
+            'prenom.required' => 'Le prénom est obligatoire',
+            'email.required' => 'L\'email est obligatoire',
+            'email.email' => 'L\'email n\'est pas valide',
+            'email.unique' => 'Cet email est déjà utilisé',
+            'numeroTelephone.required' => 'Le téléphone est obligatoire',
+            'selectedGroup.required' => 'Le groupe sélectionné est obligatoire',
+            'selectedGroup.exists' => 'Le groupe sélectionné est invalide',
+            'avatar.image' => 'L\'avatar doit être une image',
+            'avatar.mimes' => 'L\'avatar doit être un fichier de type: jpeg, png, jpg, gif, svg',
+            'avatar.max' => 'L\'avatar ne doit pas dépasser 2048 kilooctets'
+        ];
+    }
 }

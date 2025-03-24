@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', [ContactController::class, 'store']);   
         Route::get('/{id}', [ContactController::class, 'show']);  
         Route::put('/{id}', [ContactController::class, 'update']);  
-        Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+        Route::delete('/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
         Route::post('/{contact}/updateFavoriteStatus', [ContactController::class, 'updateFavoriteStatus']);  
         Route::get('/{contact}/removeFavorite', [ContactController::class, 'removeFavorite']);
     });
@@ -40,4 +40,3 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->get('/me', [AuthController::class, 'me']);
 
     });  
-

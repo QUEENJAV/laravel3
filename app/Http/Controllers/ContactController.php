@@ -107,19 +107,33 @@ class ContactController extends Controller
         }
     }
 
+    // public function destroy(int $id): JsonResponse
+    // {
+    //     try {
+    //         $contact = $this->contactService->findById($id);
+    //         $this->contactService->deleteContact($contact);
+            
+    //         return response()->json([
+    //             'success' => 'Contact deleted successfully'
+    //         ]);
+    //     } catch (Exception $e) {
+    //         return response()->json([
+    //             'error' => 'Failed to delete contact: ' . $e->getMessage()
+    //         ], 500);
+    //     }
+    // }
     public function destroy(int $id): JsonResponse
     {
         try {
             $contact = $this->contactService->findById($id);
+            if (!$contact) {
+                return response()->json(['error' => 'Contact not found'], 404);
+            }
             $this->contactService->deleteContact($contact);
-            
-            return response()->json([
-                'success' => 'Contact deleted successfully'
-            ]);
+
+            return response()->json(['success' => 'Contact deleted successfully']);
         } catch (Exception $e) {
-            return response()->json([
-                'error' => 'Failed to delete contact: ' . $e->getMessage()
-            ], 500);
+            return response()->json(['error' => 'Failed to delete contact: ' . $e->getMessage()], 500);
         }
     }
     public function updateFavoriteStatus(int $id, Request $request): JsonResponse

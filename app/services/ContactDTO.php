@@ -29,7 +29,7 @@ class ContactDTO
         $dto->imagePath = $data['imagePath'];
         $dto->groupeId = $data['groupeId'];
         $dto->userId = $data['userId'];
-        $dto->is_favorite = $data['s_favorite'];
+        $dto->is_favorite = $data['is_favorite'];
         return $dto;
     }
 }
