@@ -4,8 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;  
 
-
-
 class StoreContactRequest extends FormRequest  
 {  
     public function authorize(): bool  
@@ -25,19 +23,6 @@ class StoreContactRequest extends FormRequest
             'is_favorite' => 'nullable|boolean'
         ];
     }
-
-//     public function rules(): array
-// {
-//     return [  
-//         'nom' => 'required|string|max:255',  
-//         'prenom' => 'required|string|max:255',  
-//         'email' => 'required|email|max:255|unique:contacts,email',  
-//         'numeroTelephone' => 'required|string|max:20', 
-//         'selectedGroup' => 'nullable|exists:groups,id',
-//         'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'  
-//         //'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',  
-//     ];  
-// }
 
     public function messages(): array
     {

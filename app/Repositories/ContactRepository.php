@@ -21,8 +21,9 @@ class ContactRepository implements ContactRepositoryInterface
             });
         }
 
-        return $contacts->latest()->paginate(5); // Vous pouvez ajuster le nombre d'éléments par page
+        return $contacts->latest()->paginate(5); 
     }
+    
     public function findById(int $id): ?Contact
     {
         return Contact::with('group')->find($id);

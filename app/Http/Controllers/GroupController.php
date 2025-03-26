@@ -38,13 +38,17 @@ class GroupController extends Controller
 
     public function show($id)
     {
-        $group = Group::find($id);
+        try {
+            $group = $this->groupService->findGroupById($id);
 
-        if (!$group) {
-            return response()->json(['message' => 'Groupe non trouvé'], 404);
+            if (!$group) {
+                return response()->json(['message' => 'Groupe non trouvé'], 404);
+            }
+
+            return response()->json($group);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Une erreur est survenue: ' . $e->getMessage()], 500);
         }
-
-        return response()->json($group);
     }
 
     public function update(Request $request, $id)

@@ -1,15 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\DTO;
 use App\Http\Requests\StoreContactRequest; 
 
 class ContactDTO
 {
-   
-
-    /**
-     * Create a new class instance.
-     */
     public string $nom;
     public string $prenom;
     public string $email;

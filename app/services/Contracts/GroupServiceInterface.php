@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Contracts;
+
 use App\Models\Group;
+
 interface GroupServiceInterface
 {
     public function searchGroups($searchQuery);

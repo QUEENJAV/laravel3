@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Models\Group;
+use App\Services\Contracts\GroupServiceInterface;
 class GroupService implements GroupServiceInterface
 {
      public function searchGroups($searchQuery)

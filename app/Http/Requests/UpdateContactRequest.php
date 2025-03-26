@@ -11,7 +11,7 @@ class UpdateContactRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // Vous pouvez ajouter une logique d'autorisation ici si nécessaire
+        
         return true;
     }
 

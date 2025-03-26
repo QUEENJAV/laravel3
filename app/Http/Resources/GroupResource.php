@@ -4,9 +4,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 class GroupResource extends JsonResource
 {
-    /**
-     * Create a new class instance.
-     */
+    
     public function __construct()
     {
        

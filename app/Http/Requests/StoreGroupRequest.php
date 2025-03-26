@@ -26,6 +26,7 @@ class StoreGroupRequest extends FormRequest
             'description' => 'nullable|string',
         ];
     }
+    
     public function messages()
     {
         return [

@@ -20,8 +20,6 @@ class ContactResource extends JsonResource
             'user_id' => $this->user_id,
             'is_favorite' => $this->is_favorite,
             'group' => $this->group,
-            // 'favorite' => $this->favorite,
-            // 'group' => new GroupResource($this->whenLoaded('group')),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,  
         ];

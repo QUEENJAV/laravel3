@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Contracts;
 
 use Illuminate\Http\UploadedFile;
 interface FileStorageServiceInterface
